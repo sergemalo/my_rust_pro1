@@ -41,6 +41,26 @@ Reads user input and spit it out"#]
     let (a, b, c) = (1, 2, 3);
     println!("{}", a);
 
+    // Scalar
+    // Char: size is 4 BYTES !
+    let smiley = '\u{1F601}';
+    println!("{}", smiley);
+
+
+    // Strings
+    // Next are "String slices": they immutable.
+    let dog: &str = "Flash";
+    let dog2: &'static str = "Flash-static";
+    // String object
+    let dog3 = String::new();
+    let dog3 = String::from(dog);
+    // String format Macro
+    let mut owner = String::from(format!("Serge is owner of {}", dog3));
+    println!("{}", owner);
+    // push_str
+    // dog.push_str("---"); !!! Impossible on slices - immutable
+    owner.push_str(" with love.");
+
     let mut input = String::new();
     println!("Say something:");
     match io::stdin().read_line(&mut input) {
